@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Clinician - MMPI Test Girişi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(0, 73, 197, 0.15);
+        }
+        .gender-btn {
+            transition: all 0.2s ease;
+        }
+        .gender-btn.active {
+            background-color: white !important;
+            color: #0049c5 !important;
+            font-weight: 700 !important;
+            box-shadow: 0 12px 30px rgba(0, 73, 197, 0.12) !important;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#8ba5fe",
+                    "on-surface": "#131b2e",
+                    "surface-container-low": "#f2f3ff",
+                    "on-background": "#131b2e",
+                    "on-tertiary-container": "#e8eefe",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#0253db",
+                    "inverse-surface": "#283044",
+                    "primary-container": "#2562e9",
+                    "background": "#faf8ff",
+                    "secondary-fixed-dim": "#b5c4ff",
+                    "tertiary": "#4d5461",
+                    "surface-container": "#eaedff",
+                    "outline": "#737686",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#404754",
+                    "surface": "#faf8ff",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#dae2fd",
+                    "tertiary-container": "#656c7a",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#434655",
+                    "on-secondary-fixed": "#00164e",
+                    "surface-container-high": "#e2e7ff",
+                    "on-primary-container": "#eceeff",
+                    "outline-variant": "#c3c6d7",
+                    "inverse-on-surface": "#eef0ff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary-fixed": "#151c27",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#00174b",
+                    "secondary": "#3e59ad",
+                    "surface-container-highest": "#dae2fd",
+                    "surface-dim": "#d2d9f4",
+                    "secondary-fixed": "#dce1ff",
+                    "on-secondary-fixed-variant": "#234194",
+                    "surface-bright": "#faf8ff",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#dbe1ff",
+                    "tertiary-fixed": "#dce2f3",
+                    "on-secondary-container": "#17378a",
+                    "tertiary-fixed-dim": "#c0c7d6",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "primary": "#0049c5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-full">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-50 headline">Digital Clinician</span>
+
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 hover:text-blue-600 cursor-pointer" data-icon="account_circle">account_circle</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-blue-600 cursor-pointer" data-icon="settings">settings</span>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full z-40 bg-slate-50 dark:bg-slate-900 h-screen w-64 hidden lg:flex flex-col border-r border-slate-200/50 dark:border-slate-800/50">
+<div class="p-6">
+<div class="text-xl font-black text-blue-800 dark:text-blue-400 headline mb-8">Digital Clinician</div>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-r-4 border-blue-600 group cursor-pointer">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-medium">Test</span>
+</div>
+<a href="grafik.html">
+<div class="flex items-center gap-3 p-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+
+<span class="font-medium">Grafik</span>
+</div>
+</a>
+<div class="flex items-center gap-3 p-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-transform duration-200 hover:translate-x-1 cursor-pointer" >
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-medium">Geçmiş</span>
+</div>
+</div>
+<div class="mt-auto pt-10">
+<div class="p-4 rounded-xl bg-surface-container-highest/50 mb-6">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">AI</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Plus Plan</p>
+<p class="text-[10px] text-on-surface-variant">AI Ayrıntılı Raporlar</p>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-white rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity">Pro Plan Yükselt</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-4 md:p-8 lg:p-12">
+<div class="max-w-5xl mx-auto"></div>
+<!-- Header Section -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight mb-2">MMPI Test Girişi</h1>
+<p class="text-on-surface-variant max-w-lg">Profesyonel klinik değerlendirme için 566 soruluk MMPI-2 envanterini doldurun. Yapay zeka destekli analiz için verileri giriniz.</p>
+</div>
+<div class="flex items-center gap-3 px-4 py-2 bg-surface-container-low rounded-full border border-outline-variant/10 ai-glow">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-sm font-medium text-on-surface-variant">Plus</span>
+</div>
+</section>
+<!-- Metadata & Config Section (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Patient Info Card -->
+<div class="col-span-1 md:col-span-2 bg-surface-container-low rounded-[2rem] p-8 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold mb-6 headline">Hasta Bilgileri </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-2">Ad Soyad</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" placeholder="İsim Giriniz" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant ml-2">Referans No</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" placeholder="REF-0000" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Toggles Card -->
+<div class="bg-surface-container-highest rounded-[2rem] p-8">
+<div class="space-y-8">
+<div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-secondary-container mb-4">Cinsiyet</h3>
+<div class="flex bg-white/20 p-1 rounded-2xl gender-toggle">
+<button id="gender-male-a" class="gender-btn flex-1 py-3 px-4 rounded-xl active" onclick="setGender('answers','male')">Erkek</button>
+<button id="gender-female-a" class="gender-btn flex-1 py-3 px-4 rounded-xl text-on-secondary-container font-medium hover:bg-white/10 transition-all" onclick="setGender('answers','female')">Kadın</button>
+</div>
+</div>
+<div>
+  <h3 class="text-sm font-bold uppercase tracking-widest text-on-secondary-container mb-4">Yaş</h3>
+  <div class="flex items-center gap-4">
+    <input 
+      class="flex-1 accent-primary" 
+      max="99" 
+      min="18" 
+      type="range" 
+      value="30"
+      oninput="this.nextElementSibling.textContent = this.value"
+    />
+    <span class="text-2xl font-black text-primary w-12">30</span>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<script>
+    const state = {
+        gender: {
+            answers: 'male'
+        }
+    };
+
+    function setGender(panel, gender) {
+        state.gender[panel] = gender;
+
+        const prefix = panel === 'answers' ? 'a' : 'r';
+        document.getElementById(`gender-male-${prefix}`).classList.toggle('active', gender === 'male');
+        document.getElementById(`gender-female-${prefix}`).classList.toggle('active', gender === 'female');
+
+        const badge = document.getElementById('chart-gender-badge');
+        if (badge) {
+            badge.textContent = gender === 'male' ? 'ERKEK' : 'KADIN';
+        }
+    }
+
+    setGender('answers', 'male');
+</script>
+<!-- Progress & Action Bar -->
+<section class="sticky top-20 z-30 mb-8 glass-panel rounded-3xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="w-full md:w-1/2">
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-primary">Tamamlanma Oranı</span>
+<span class="text-sm font-bold text-on-surface-variant">0 / 566</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[5%] rounded-full shadow-[0_0_10px_rgba(37,98,233,0.3)]"></div>
+</div>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<!--
+    <button class="flex-1 md:flex-none px-8 py-4 rounded-2xl bg-white border border-outline-variant text-on-surface font-bold hover:bg-surface-container transition-all">Testi Başlat</button>
+-->
+    <button class="flex-1 md:flex-none px-8 py-4 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-white font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            Grafik Oluştur
+                        </button>
+</div>
+</div>
+</section>
+<!-- Main Input Flow: Focus Mode -->
+<section class="bg-white rounded-[2rem] p-6 shadow-xl shadow-blue-900/5 border border-outline-variant/5">
+<div class="flex items-center justify-between mb-6 px-2">
+<h3 class="font-bold text-on-surface headline">TEST CEVAPLARI</h3>
+<div class="flex gap-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-blue-600"></span> Doğru</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-500"></span> Yanlış</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-slate-200"></span> Boş</span>
+</div>
+</div>
+<div class="grid-scrollbar overflow-y-auto max-h-[600px] pr-2">
+<div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3">
+<!-- Javascript would normally generate these, but providing placeholders for the requested 566 -->
+<!-- Pattern: Number + Toggle area (D/Y/Boş) -->
+<script>
+                        for (let i = 1; i <= 566; i++) {
+                            document.write(`
+                                <div class="group flex flex-col items-center bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-2 transition-all hover:border-primary/40 hover:shadow-sm">
+                                    <span class="text-[10px] font-bold text-slate-400 mb-1.5">${i}</span>
+                                    <button class="w-full flex items-center justify-center bg-slate-50 border border-slate-200 rounded-lg py-1.5 transition-all active:scale-95 hover:bg-white">
+                                        <span class="text-xs font-bold text-slate-400">Boş</span>
+                                    </button>
+                                </div>
+                            `);
+                        }
+                    </script>
+</div>
+</div>
+</section>
+<!-- Informational Graphic
+<section class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="rounded-[2rem] overflow-hidden shadow-2xl relative group">
+<img alt="Clinical data visualization dashboard" class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Modern medical dashboard displaying complex psychological data trends with clean typography and blue color palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWeb3YV6a8XBnd-O3-qPHYhq9ZbPSyZxXMJ1y1is0eCPZ1FWH0v3fiknp-jJ_zM2k8By3Zu4f64wdTOgkm1zPBcSP77lqb99Bt7bPVi7tyGw_9EuBMeothMs_xJHjIwnhNNVNLs95grG7SjaJHinif25AeLUqV7O7pr8VAVjvszcNxaPtpivCneXaAGI29mdj1gewhTSplMef9r-bZU3ZDEZe6s8iZe1bRELsQVyiIAjbtTQ691Me1-KRhY8TqhP4TpZm855faMiYs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-10">
+<div class="text-white">
+<h4 class="text-2xl font-bold mb-2">Hassas Analiz</h4>
+<p class="text-white/80">MMPI-2 testi sonuçlarınız, bilimsel geçerliliği kanıtlanmış algoritmalarımızla saniyeler içinde işlenir.</p>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="text-3xl font-extrabold headline leading-tight">Neden Digital Clinician?</h3>
+<ul class="space-y-4">
+<li class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Gizlilik Odaklı</h5>
+<p class="text-sm text-on-surface-variant">Tüm verileriniz uçtan uca şifrelenir ve klinik standartlarda korunur.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Yapay Zeka Destekli</h5>
+<p class="text-sm text-on-surface-variant">Ham skorları, klinik anlam ifade eden profesyonel grafiklere dönüştürür.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+ -->
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-slate-950/90 backdrop-blur-2xl lg:hidden border-t border-slate-200/10 dark:border-slate-800/10 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20 rounded-xl px-4 py-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="font-medium text-[10px] Inter">Test</span>
+</div>
+<a href="grafik.html">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="font-medium text-[10px] Inter">Grafik</span>
+</div>
+</a>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-medium text-[10px] Inter">Geçmiş</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="mt-20 py-12 px-6 bg-surface-container-lowest border-t border-outline-variant/10 text-center">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="clinical_notes">clinical_notes</span>
+<span class="font-bold text-slate-900">Digital Clinician</span>
+</div>
+<div class="text-sm text-on-surface-variant">
+                © 2026 Digital Clinician AI. Tüm hakları saklıdır.
+            </div>
+<a class="text-sm font-semibold text-primary hover:underline" href="mailto:info@mmpihesaplama.com">
+                info@dijitalclinician.com
+            </a>
+</div>
+</footer>
+</body></html>
